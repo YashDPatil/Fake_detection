@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake Review Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 8 px;
+        }
+
+        input[type="checkbox"] {
+            margin-bottom: 10px;
+        }
+
+        input[type="submit" ] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        input[type="reset" ] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        h2 {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fake Review Detection</h1>
+    <form action="/predict" method="POST">
+        <label for="review_text">Enter Review Text:</label>
+        <br>
+        <textarea name="review_text" id="review_text" rows="5" cols="40"></textarea>
+        <br>
+        <!-- <label for="verified_purchase">Verified Purchase:</label>
+        <input type="checkbox" name="verified_purchase" id="verified_purchase">
+        <br>
+        <label for="review_relevance">Review Relevance:</label>
+        <input type="checkbox" name="review_relevance" id="review_relevance"> -->
+        <br>
+        <input type="submit" value="Predict">
+        <input type="reset" value="Reset">
+    </form>
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+    {% if best_model %}
+        <h2>Best Model: {{ best_model }}</h2>
+    {% endif %}
+    {% if accuracy %}
+        <h2>Best Accuracy: {{ accuracy }}</h2>
+    {% endif %}
+</body>
+</html>
