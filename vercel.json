@@ -6,7 +6,7 @@
     }
 ],
 
-"_routes_" :[
+"routes" :[
     {
         "src" :"/(.*)",
         "dest" : "app.py"
